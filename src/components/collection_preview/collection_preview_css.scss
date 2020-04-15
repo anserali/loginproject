@@ -1,0 +1,33 @@
+.collectionInfo {
+    height: 20%;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.preview {
+    display: flex;
+    height: 400px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.collectionImage {
+    height: 80%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.collection {
+    padding: 0px 30px;
+    display: flex;
+    justify-content: space-between;
+    flex: auto;
+    flex-direction: column;
+}
+
+.collectionPreview h1 {
+    padding: 0px 30px;
+
+}

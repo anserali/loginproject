@@ -1,0 +1,16 @@
+.main_container {
+  flex-wrap: wrap;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  min-width: 30%;
+  margin: 20px;
+  flex: auto;
+  transition: all 1s;
+  &.large {
+    min-height: 400px;
+  }
+}

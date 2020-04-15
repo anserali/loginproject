@@ -1,0 +1,17 @@
+.header {
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: 0 auto;
+    align-items: baseline;
+
+    .headerLinks {
+        display: flex;
+        justify-content: flex-end
+    }
+
+    a {
+        margin-right: 10px;
+    }
+}

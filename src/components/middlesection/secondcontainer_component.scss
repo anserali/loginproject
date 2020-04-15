@@ -1,0 +1,29 @@
+.second_container {
+  min-width: 30%;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+.third-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 50px;
+  color: black;
+  background: white;
+  cursor: pointer;
+  opacity: 0.5;
+  text-transform: uppercase;
+  border: 1px solid black;
+}
+
+.third-container:hover {
+  opacity: 0.8;
+  transition: opacity 1s;
+}
+span {
+  white-space: nowrap;
+}
