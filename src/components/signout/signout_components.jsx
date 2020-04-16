@@ -28,6 +28,7 @@ class SignOut extends React.Component
             auth.createUserWithEmailAndPassword(email, password).catch(function (error)
             {
                 // Handle Errors here.
+                alert("User Already Exist")
                 var errorCode = error.code;
                 var errorMessage = error.message;
                 // ...

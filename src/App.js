@@ -6,9 +6,8 @@ import SingInsignOut from "./pages/sign-In-sign-up-page/signInPage"
 import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
 import Header from './components/header/header';
 import { auth, db } from './database/configDb'
-import { Provider } from 'react-redux'
-import store from "./redux/store"
-
+import { connect } from 'react-redux'
+import userAction from './redux/action'
 
 class App extends React.Component
 {
@@ -78,13 +77,14 @@ class App extends React.Component
         const dbRef = await this.createDatabaseForUser(user)
         dbRef.onSnapshot(snapshot =>
         {
-          this.setState({
-            currentUser: {
-              id: snapshot.id,
-              ...snapshot.data()
-            }
+          this.props.dispatch({
+            id: snapshot.id,
+            ...snapshot.data()
           })
         })
+      } else
+      {
+        this.props.dispatch(null)
       }
 
     });
@@ -93,24 +93,34 @@ class App extends React.Component
   render()
   {
     return (
-      <Provider store={store()}>
-        <BrowserRouter>
-          <Header param={this.state.currentUser} />
-          <Switch>
-            <Route exact path="/">
-              <Homepages parameter={this.state.array} />
-            </Route>
-            <Route path="/shop">
-              <Shoppage />
-            </Route>
-            <Route path="/signin">
-              <SingInsignOut />
-            </Route>
-          </Switch>
-        </BrowserRouter>
-      </Provider>
+
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Homepages parameter={this.state.array} />
+          </Route>
+          <Route path="/shop">
+            <Shoppage />
+          </Route>
+          <Route path="/signin">
+            <SingInsignOut />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
+const mapStateToProps = (state) =>
+{
+  return { payload: state.user };
+};
 
-export default App;
+const mapDispatchToProps = dispatch =>
+{
+  return {
+    dispatch: (data) => dispatch(userAction(data))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

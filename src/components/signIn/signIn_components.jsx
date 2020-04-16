@@ -27,28 +27,16 @@ class SignIn extends React.Component
 
         auth.signInWithEmailAndPassword(email, password).catch(function (error)
         {
-            console.log(error)
+            alert("Invalid Password")
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             // ...
         });
-        this.props.dispatch({ name: "", email: "" })
-        // this.setState({
-        //     email: "",
-        //     name: ""
-        // })
     }
     handleChange = (e) =>
     {
-        const { name, value } = e.target
 
-        // this.props.dispatch({ name: name, email: value })
-
-        // this.setState({
-        //     name: name,
-        //     email: value
-        // })
     }
 
 
@@ -91,4 +79,5 @@ const mapDispatchToProps = dispatch =>
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn) 
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+// export default SignIn
