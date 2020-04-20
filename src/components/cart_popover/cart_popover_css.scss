@@ -1,0 +1,48 @@
+.bag {
+    position: relative;
+    display: flex;
+
+    .bag_price {
+        font-size:20px;
+        position: absolute;
+        width: 100%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+}
+
+.shipping_bag{
+    .popover_arrow{
+        display: none;
+    }
+
+    .popover{
+        top:10px!important;
+        left:-100px!important;
+    }
+}
+
+.shopping_bag_dropdown{
+    width: 250px;
+    height: 400px;
+    overflow: auto;
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.upper_div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.image_div{
+    img{
+        padding:20px;
+        width: 100px;
+    }
+}

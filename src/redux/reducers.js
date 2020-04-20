@@ -1,6 +1,8 @@
+import {check_items} from '../components/cart_popover/cart_items_check' 
+
 const initialvalue = {
     currentUser: null,
-    one: "hai"
+    items:[]
 }
 
 function userReducer(state = initialvalue, action)
@@ -15,3 +17,14 @@ function userReducer(state = initialvalue, action)
 }
 
 export default userReducer
+
+export const add_Items = (state = initialvalue,action) =>
+{
+    switch (action.type)
+    {
+        case 'Add_Items':
+            return { ...state, items :check_items(action.payload,state.items) }
+        default:
+            return state
+    }
+}  
