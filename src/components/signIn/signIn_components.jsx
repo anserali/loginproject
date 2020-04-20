@@ -5,6 +5,8 @@ import signInWithGoogle from "../../database/configDb"
 import { auth } from "../../database/configDb"
 import { connect } from 'react-redux'
 import userAction from '../../redux/action'
+import { currentUser } from "../../currentUser"
+
 
 class SignIn extends React.Component
 {
@@ -69,7 +71,7 @@ class SignIn extends React.Component
 
 const mapStateToProps = (state) =>
 {
-    return { payload: state.user };
+    return { payload: currentUser(state) };
 };
 
 const mapDispatchToProps = dispatch =>

@@ -8,7 +8,7 @@ import Header from './components/header/header';
 import { auth, db } from './database/configDb'
 import { connect } from 'react-redux'
 import userAction from './redux/action'
-
+import {currentUser} from "./currentUser"
 class App extends React.Component
 {
   constructor()
@@ -113,7 +113,7 @@ class App extends React.Component
 }
 const mapStateToProps = (state) =>
 {
-  return { payload: state.user };
+  return { payload: currentUser(state) };
 };
 
 const mapDispatchToProps = dispatch =>
